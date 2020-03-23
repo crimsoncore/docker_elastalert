@@ -8,16 +8,16 @@ RUN apt-get update && \
 # update pip
         python3.6 -m pip install pip --upgrade && \
         python3.6 -m pip install wheel
-# install elastalert
-
+# Install elastalert
+RUN pip3 install --ignore-installed PyYAML
+RUN python3 -m pip install elastalert
+#Create default directories
 RUN mkdir -p /opt/elastalert
 RUN mkdir -p /opt/elastalert/rules
+RUN mkdir -p /opt/elastalert/config
 WORKDIR /opt/elastalert
-RUN wget https://github.com/crimsoncore/mdbook_docker/blob/master/mdbook-v0.3.5-x86_64-unknown-linux-gnu.tar.gz?raw=true -O /opt/mdbook/mdbook.tar.gz
-RUN tar -xvzf /opt/mdbook/mdbook.tar.gz
-RUN rm /opt/mdbook/mdbook.tar.gz
-#COPY run.sh /opt/mdbook
-RUN wget https://raw.githubusercontent.com/crimsoncore/docker_mdbook/master/run.sh -O /opt/mdbook/run.sh
-RUN chmod +x /opt/mdbook/run.sh
-ENTRYPOINT "/opt/mdbook/run.sh"
+#COPY run.sh /opt/elastalert
+RUN wget https://raw.githubusercontent.com/crimsoncore/docker_elastalert/master/run.sh -O /opt/elastalert/run.sh
+RUN chmod +x /opt/elastalert/run.sh
+ENTRYPOINT "/opt/elastalert/run.sh"
 

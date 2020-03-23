@@ -1,0 +1,14 @@
+version: '2'
+services:
+  mdbook:
+    image: crimsoncorelabs/elastalert
+    container_name: elastalert
+    restart: unless-stopped
+    volumes:
+    - /opt/elastalert/config:/opt/elastalert/config
+    - /opt/elastalert/rules:/opt/elastalert/rules
+    networks:
+      - elastic
+networks:
+  elastic:
+    driver: bridge
