@@ -8,6 +8,8 @@ RUN apt-get update && \
 # update pip
         python3.6 -m pip install pip --upgrade && \
         python3.6 -m pip install wheel
+RUN apt-get update && \
+        apt-get install -y curl wget
 # Install elastalert
 RUN pip3 install --ignore-installed PyYAML
 RUN python3 -m pip install elastalert
