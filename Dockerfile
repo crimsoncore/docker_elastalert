@@ -10,14 +10,14 @@ RUN apt-get update && \
         python3.6 -m pip install wheel
 # install elastalert
 
-RUN mkdir -p /opt/mdbook
-RUN mkdir -p /opt/wiki
-WORKDIR /opt/mdbook
+RUN mkdir -p /opt/elastalert
+RUN mkdir -p /opt/elastalert/rules
+WORKDIR /opt/elastalert
 RUN wget https://github.com/crimsoncore/mdbook_docker/blob/master/mdbook-v0.3.5-x86_64-unknown-linux-gnu.tar.gz?raw=true -O /opt/mdbook/mdbook.tar.gz
 RUN tar -xvzf /opt/mdbook/mdbook.tar.gz
 RUN rm /opt/mdbook/mdbook.tar.gz
 #COPY run.sh /opt/mdbook
-RUN wget https://raw.githubusercontent.com/crimsoncore/mdbook_docker/master/run.sh -O /opt/mdbook/run.sh
+RUN wget https://raw.githubusercontent.com/crimsoncore/docker_mdbook/master/run.sh -O /opt/mdbook/run.sh
 RUN chmod +x /opt/mdbook/run.sh
 ENTRYPOINT "/opt/mdbook/run.sh"
 
