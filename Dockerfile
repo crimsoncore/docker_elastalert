@@ -17,6 +17,7 @@ RUN python3 -m pip install elastalert
 RUN mkdir -p /opt/elastalert
 RUN mkdir -p /opt/elastalert/rules
 RUN mkdir -p /opt/elastalert/config
+RUN mkdir -p /opt/elastalert/log
 WORKDIR /opt/elastalert
 #COPY run.sh /opt/elastalert
 RUN wget https://raw.githubusercontent.com/crimsoncore/docker_elastalert/master/run.sh -O /opt/elastalert/run.sh
