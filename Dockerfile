@@ -12,7 +12,7 @@ RUN apt-get update && \
         apt-get install -y curl wget
 # Install elastalert
 RUN pip3 install --ignore-installed PyYAML
-RUN python3 -m pip install elastalert
+RUN python3 -m pip install elastalert==0.2.1
 # Create default directories
 RUN mkdir -p /opt/elastalert
 RUN mkdir -p /opt/elastalert/rules
