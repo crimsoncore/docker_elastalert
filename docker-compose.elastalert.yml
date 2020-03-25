@@ -1,6 +1,6 @@
 version: '2'
 services:
-  mdbook:
+  elastalert:
     image: crimsoncorelabs/elastalert
     container_name: elastalert
     restart: unless-stopped
